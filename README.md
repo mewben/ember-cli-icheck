@@ -1,25 +1,13 @@
-# Ember-cli-icheck
+# ember-cli-icheck
 
-This README outlines the details of collaborating on this Ember addon.
+ember-cli addon component for [iCheck](http://fronteed.com/iCheck/)
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `npm install ember-cli-icheck --save-dev`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+* In any `.hbs` file,
+	- `{{i-check checked=variable}}`
+	- `{{i-check type="radio" checked=variable}}`
