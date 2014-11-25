@@ -1,20 +1,35 @@
 import Ember from 'ember';
 
-export default Ember.TextField.extend({
-	type: 'checkbox', // default, can be overriden type="radio"
+export default Ember.Checkbox.extend({
 
 	_icheck: null, // iCheck instance
 
 	setup: function() {
+		var that = this;
+
+		Ember.assert("select2 has to exist on Ember.$.fn.iCheck", Ember.$.fn.iCheck);
+
 		var icheck = this.$().iCheck({
 			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_square-blue'
+			radioClass: 'iradio_square-blue',
+			increaseArea: '20%'
 		});
 
-		this.set('_icheck', iCheck);
+		icheck.on('ifToggled', function(ev) {
+			that.set('checked', ev.target.checked);
+		});
+
+		this.set('_icheck', icheck);
+
 	}.on('didInsertElement'),
 
+	_checkedChanged: function() {
+		var checked = this.get('checked') ? 'check' : 'uncheck';
+		this.get('_icheck').iCheck(checked);
+	}.observes('checked'),
+
 	teardown: function() {
+		this.get('_icheck').iCheck('destroy');
 		this.get('_icheck').destroy();
 	}.on('willDestroyElement')
 });
