@@ -29,6 +29,11 @@ export default Ember.Checkbox.extend({
 	}.observes('checked'),
 
 	teardown: function() {
-		this.get('_icheck').destroy();
+
+		if (this._icheck) {
+			this.$().iCheck('destroy');
+		}
+
+		this.removeObserver('checked', this._checkedChanged);
 	}.on('willDestroyElement')
 });
