@@ -7,7 +7,7 @@ export default Ember.Checkbox.extend({
 	setup: function() {
 		var that = this;
 
-		Ember.assert("select2 has to exist on Ember.$.fn.iCheck", Ember.$.fn.iCheck);
+		Ember.assert("iCheck has to exist on Ember.$.fn.iCheck", Ember.$.fn.iCheck);
 
 		var icheck = this.$().iCheck({
 			checkboxClass: 'icheckbox_square-blue',
