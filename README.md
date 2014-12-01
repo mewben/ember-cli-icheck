@@ -5,6 +5,7 @@ ember-cli addon component for [iCheck](http://fronteed.com/iCheck/)
 ## Installation
 
 * `npm install ember-cli-icheck --save-dev`
+* `ember g ember-cli-icheck`
 
 ## Usage
 
