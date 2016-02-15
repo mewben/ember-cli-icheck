@@ -10,9 +10,9 @@ export default Ember.Checkbox.extend({
 		Ember.assert("iCheck has to exist on Ember.$.fn.iCheck", !!Ember.$.fn.iCheck);
 
 		var icheck = this.$().iCheck({
-			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_square-blue',
-			increaseArea: '20%'
+			checkboxClass: this.getWithDefault('checkboxClass', 'icheckbox_square-blue'),
+    	radioClass: this.getWithDefault('radioClass', 'iradio_square-blue'),
+    	increaseArea: this.getWithDefault('areaIncrease', '20%')
 		});
 
 		icheck.on('ifToggled', function(ev) {
