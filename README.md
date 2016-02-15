@@ -15,7 +15,7 @@ ember-cli addon component for [iCheck](http://fronteed.com/iCheck/)
 	- `{{i-check type="checkbox" checked=variable checkboxClass='icheckbox_whatever-style'}}`
 	- `{{i-check type="radio" checked=variable radioClass='iradio_whatever-style' areaIncrease="30%"}}`
 
-* currently you can override the following defaults in handlebars
-	- checkboxClass
-	- radioClass
-	- areaIncrease
+* Defaults:
+	- checkboxClass: 'icheckbox_square-blue'
+	- radioClass: 'iradio_square-blue'
+	- increaseArea: '20%'

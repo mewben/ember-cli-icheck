@@ -11,10 +11,13 @@ export default Ember.Checkbox.extend({
 
 		var icheck = this.$().iCheck({
 			// base class added to customized checkboxes
-			checkboxClass: this.getWithDefault('areaIncrease', 'icheckbox_square-blue'),
+			checkboxClass: this.getWithDefault('checkboxClass', 'icheckbox_square-blue'),
 
 			// base class added to customized radio buttons
-			radioClass: this.getWithDefault('areaIncrease', 'iradio_square-blue'),
+			radioClass: this.getWithDefault('radioClass', 'iradio_square-blue'),
+
+			// increase clickable area by given % (negative number to decrease)
+			increaseArea: this.getWithDefault('increaseArea', '20%'),
 
 			// class added on checked state (input.checked = true)
 			checkedClass: this.getWithDefault('checkedClass', 'checked'),
@@ -72,9 +75,6 @@ export default Ember.Checkbox.extend({
 
 			// class added to label if labelHover set to true
 			labelHoverClass: this.getWithDefault('labelHoverClass', 'hover'),
-
-			// increase clickable area by given % (negative number to decrease)
-			increaseArea: this.getWithDefault('increaseArea', ''),
 
 			// true to set 'pointer' CSS cursor over enabled inputs and 'default' over disabled
 			cursor: this.getWithDefault('cursor', false),
