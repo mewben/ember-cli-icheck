@@ -1,4 +1,6 @@
 'use strict';
+var path = require('path');
+
 
 module.exports = {
   	name: 'ember-cli-icheck',
@@ -6,9 +8,24 @@ module.exports = {
   	included: function(app) {
   		this._super.included(app);
 
-  		app.import(app.bowerDirectory + '/iCheck/icheck.min.js');
-  		app.import(app.bowerDirectory + '/iCheck/skins/square/blue.css');
-  		app.import(app.bowerDirectory + '/iCheck/skins/square/blue.png', { destDir: 'assets' });
-  		app.import(app.bowerDirectory + '/iCheck/skins/square/blue@2x.png', { destDir: 'assets' });
+      app.import(app.bowerDirectory + '/iCheck/icheck.min.js');
+
+
+      app.options = app.options || {}; // Ensures options exists for Scss/Less below
+      let options = app.options['emberCliIcheck'] || {};
+      let skinsPath = path.join(app.bowerDirectory, 'icheck/skins/');
+
+      let skins = options.skins || ['square'];
+      let colors = options.colors || ['blue'];
+
+      console.log(skins);
+
+      skins.forEach(skin => {
+        colors.forEach(color => {
+          app.import(path.join(skinsPath, skin + "/" + color + ".css"));
+          app.import(path.join(skinsPath, skin + "/" + color + ".png"), { destDir: 'assets' });
+          app.import(path.join(skinsPath, skin + "/" + color + "@2x.png"), { destDir: 'assets' });
+        });
+      });
   	}
 };
