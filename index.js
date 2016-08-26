@@ -18,7 +18,6 @@ module.exports = {
       let skins = options.skins || ['square'];
       let colors = options.colors || ['blue'];
 
-      console.log(skins);
 
       skins.forEach(skin => {
         colors.forEach(color => {
