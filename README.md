@@ -4,8 +4,7 @@ ember-cli addon component for [iCheck](http://fronteed.com/iCheck/)
 
 ## Installation
 
-* `npm install ember-cli-icheck --save-dev`
-* `ember g ember-cli-icheck`
+* `ember install ember-cli-icheck`
 
 ## Usage
 
@@ -19,3 +18,20 @@ ember-cli addon component for [iCheck](http://fronteed.com/iCheck/)
 	- checkboxClass: 'icheckbox_square-blue'
 	- radioClass: 'iradio_square-blue'
 	- increaseArea: '20%'
+
+## Configuration
+
+The default configuration does only import square theme with blue tone, if you want to use a diferent color or theme you can import the files on your own or just configure the plugin to do so.
+The configuration should be done in your `config/enviroment.js` file, for example if you want to use flat green theme you should add this:
+```
+module.exports = function(environment) {
+  var ENV = {
+    // ... 
+    emberCliIcheck: {
+      colors: ['green'],
+      skins: ['flat']
+    }
+  };
+}
+```
+
