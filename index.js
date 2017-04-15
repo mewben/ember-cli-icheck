@@ -13,7 +13,7 @@ module.exports = {
 
       app.options = app.options || {}; // Ensures options exists for Scss/Less below
       let options = app.options['emberCliIcheck'] || {};
-      let skinsPath = path.join(app.bowerDirectory, 'icheck/skins/');
+      let skinsPath = path.join(app.bowerDirectory, 'iCheck/skins/');
 
       let skins = options.skins || ['square'];
       let colors = options.colors || ['blue'];
